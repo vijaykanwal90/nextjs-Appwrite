@@ -18,6 +18,9 @@ const appwriteClient = new Client()
 appwriteClient.setEndpoint(conf.appwriteUrl).setProject(conf.appwriteProjectId);
 
 export const account = new Account(appwriteClient)
+console.log(account)
+console.log(conf.appwriteUrl)
+console.log(conf.appwriteProjectId)
 
 export class AppwriteService {
 
@@ -26,8 +29,8 @@ export class AppwriteService {
     }: CreateUserAccount) {
         try {
 
-            const userAccount = await account.create(ID.unique(), email, password, name)
-
+            const userAccount = await account.create( ID.unique(), email, password, name)
+            console.log(userAccount)
             if (userAccount) {
                 return this.login({ email, password })
             }
@@ -36,7 +39,7 @@ export class AppwriteService {
             }
 
         } catch (error: any) {
-
+            console.log("user creation failed")
             throw error
         }
     }
@@ -48,6 +51,7 @@ export class AppwriteService {
             return await account.createEmailSession(email, password)
 
         } catch (error: any) {
+            console.log("error while log in")
             throw error
 
         }
@@ -87,6 +91,7 @@ export class AppwriteService {
 
             return await account.deleteSession("current")
         } catch (error) {
+            
             console.log("logout error" + error)
         }
 

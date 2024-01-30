@@ -7,8 +7,8 @@ import Login from "@/components/Login";
 
 const LoginPage = ()=>{
 
-    const router = useRouter()
-    const {authStatus} = useAuth()
+    const router = useRouter();
+    const {authStatus} = useAuth();
 
     if(authStatus){
         router.replace("/profile");

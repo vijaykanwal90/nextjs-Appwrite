@@ -7,16 +7,19 @@ import React from "react";
 const  ProtectedLayout = ({
 
     children,
-}: {children: React.ReactNode
+}: {
+    children: React.ReactNode
 }) =>{
 
-     const router = useRouter()
-     const {authStatus} = useAuth()
+     const router = useRouter();
+     const {authStatus} = useAuth();
+
+
      if(!authStatus){
         router.replace("/login");
-        return <></>
+        return <></>;
      }
     return children
 }
 
-export default ProtectedLayout
+export default ProtectedLayout;

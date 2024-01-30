@@ -23,6 +23,7 @@ const Login = ()=>{
          const session = await appwriteService.login(formData);
 
          if(session){(true)
+            setAuthStatus(true)
             router.push("/profile")
          }
 
