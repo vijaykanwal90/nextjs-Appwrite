@@ -21,7 +21,7 @@ export const account = new Account(appwriteClient)
 
 export class AppwriteService {
 
-    async creatUserAccount({
+    async createUserAccount({
         email, password, name
     }: CreateUserAccount) {
         try {
